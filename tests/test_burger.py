@@ -12,8 +12,8 @@ class TestBurger:
 #тест добавления булочки в бургер
     def test_set_buns(self):
         mock_bun = Mock()
-        mock_bun.name = 'grain bun'
-        mock_bun.price = 250
+        mock_bun.name = Helpers.BUN['name']
+        mock_bun.price = Helpers.BUN['price']
         burger = Burger()
         burger.set_buns(mock_bun)
         assert burger.bun == mock_bun
@@ -33,16 +33,71 @@ class TestBurger:
         mock_ingredient.price = price
         burger = Burger()
         burger.add_ingredient(mock_ingredient)
-        assert burger.bun == [mock_ingredient]
+        assert burger.ingredients == [mock_ingredient]
 
 #тест удаление ингредиентов в бургер
-    def remove_ingredient(self, index: int):
+    def remove_ingredient(self):
+        mock_ingredient = Mock()
+        mock_ingredient.type = Helpers.FILLING['type']
+        mock_ingredient.name = Helpers.FILLING['name']
+        mock_ingredient.price = Helpers.FILLING['price']
+        burger = Burger()
+        burger.add_ingredient(mock_ingredient)
+        burger.remove_ingredient(0)
+        assert burger.ingredients == []
+
+#тест на изменение порядка ингредиентов
+    def test_move_ingredient(self):
+        mock_ingredient_1 = Mock()
+        mock_ingredient_1.type = Helpers.FILLING['type']
+        mock_ingredient_1.name = Helpers.FILLING['name']
+        mock_ingredient_1.price = Helpers.FILLING['price']
+        mock_ingredient_2 = Mock()
+        mock_ingredient_2.type = Helpers.SALAD['type']
+        mock_ingredient_2.name = Helpers.SALAD['name']
+        mock_ingredient_2.price = Helpers.SALAD['price']
+        burger = Burger()
+
+        burger.add_ingredient(mock_ingredient_1)
+        burger.add_ingredient(mock_ingredient_2)
+        burger.move_ingredient(0,1)
+        assert burger.ingredients == [mock_ingredient_2, mock_ingredient_1]
+
+#тест на сборку бургера и его цену целиком
+
+    def test_get_price_burger(self):
+
+        mock_bun = Mock()
+        mock_bun.name = Helpers.BUN['name']
+        mock_bun.price = Helpers.BUN['price']
+        mock_bun.get_price.return_value = Helpers.BUN['price']
+
+        mock_ingredient_1 = Mock()
+        mock_ingredient_1.type = Helpers.FILLING['type']
+        mock_ingredient_1.name = Helpers.FILLING['name']
+        mock_ingredient_1.price = Helpers.FILLING['price']
+        mock_ingredient_1.get_price.return_value = Helpers.FILLING['price']
+
+        mock_ingredient_2 = Mock()
+        mock_ingredient_2.type = Helpers.SALAD['type']
+        mock_ingredient_2.name = Helpers.SALAD['name']
+        mock_ingredient_2.price = Helpers.SALAD['price']
+        mock_ingredient_2.get_price.return_value = Helpers.SALAD['price']
+
+        mock_ingredient_3 = Mock()
+        mock_ingredient_3.type = Helpers.SAUCE['type']
+        mock_ingredient_3.name = Helpers.SAUCE['name']
+        mock_ingredient_3.price = Helpers.SAUCE['price']
+        mock_ingredient_3.get_price.return_value = Helpers.SAUCE['price']
+
+        burger = Burger()
+        burger.set_buns(mock_bun)
+        burger.add_ingredient(mock_ingredient_1)
+        burger.add_ingredient(mock_ingredient_2)
+        burger.add_ingredient(mock_ingredient_3)
+
+        assert burger.get_price() == mock_bun.price*2 + mock_ingredient_1.price + mock_ingredient_2.price + mock_ingredient_3.price
 
 
-    def move_ingredient(self, index: int, new_index: int):
 
-
-    def get_price(self) -> float:
-
-
-    def get_receipt(self) -> str:
+   # def get_receipt(self) -> str:

@@ -15,6 +15,12 @@ class Helpers:
         'price': 250
     }
 
+    SALAD = {
+        'type': 'SALAD',
+        'name': 'iceberg',
+        'price': 250
+    }
+
 
 
 
