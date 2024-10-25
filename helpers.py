@@ -5,12 +5,12 @@ class Helpers:
     }
 
     SAUCE = {
-        'ingredient_type': 'SAUCE',
+        'type': 'SAUCE',
         'name': 'tartar sauce',
         'price': 250
     }
     FILLING = {
-        'ingredient_type': 'FILLING',
+        'type': 'FILLING',
         'name': 'fish',
         'price': 250
     }
