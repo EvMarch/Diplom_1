@@ -1,7 +1,7 @@
 from typing import List
 
-from bun import Bun
-from ingredient import Ingredient
+from ya_practikum.bun import Bun
+from ya_practikum.ingredient import Ingredient
 from ingredient_types import INGREDIENT_TYPE_SAUCE, INGREDIENT_TYPE_FILLING
 
 

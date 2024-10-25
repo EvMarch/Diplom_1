@@ -1,4 +1,4 @@
-from ya_praktikum.burger import Burger
+from ya_practikum.burger import Burger
 import pytest
 from unittest.mock import Mock
 from helpers import Helpers
@@ -21,7 +21,7 @@ class TestBurger:
 #тест недобавления ингредиентов в бургер
     def test_set_burger_ingredient_none(self):
         burger = Burger()
-        assert burger.bun == []
+        assert burger.ingredients == []
 
 #тест добавления ингредиентов в бургер
     @pytest.mark.parametrize('type, name, price', [[Helpers.SAUCE['type'], Helpers.SAUCE['name'], Helpers.SAUCE['price']],

@@ -1,4 +1,4 @@
-from ya_praktikum.ingredient import Ingredient
+from ya_practikum.ingredient import Ingredient
 from helpers import Helpers
 
 

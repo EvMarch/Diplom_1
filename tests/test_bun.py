@@ -1,5 +1,6 @@
-from ya_praktikum.bun import Bun
+from ya_practikum.bun import Bun
 from helpers import Helpers
+
 class TestBun:
 
 #проверка дать название булочки

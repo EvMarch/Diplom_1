@@ -1,9 +1,9 @@
 from typing import List
 
-from bun import Bun
-from burger import Burger
+from ya_practikum.bun import Bun
+from ya_practikum.burger import Burger
 from database import Database
-from ingredient import Ingredient
+from ya_practikum.ingredient import Ingredient
 
 def main():
     # Инициализируем базу данных
