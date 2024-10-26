@@ -1,9 +1,8 @@
 import pytest
 from helpers import Helpers
-from ya_practikum.bun import Bun
-from ya_practikum.ingredient import Ingredient
+
 from ya_practikum.database import Database
-import ingredient_types
+
 
 
 class TestDatabase:
