@@ -29,5 +29,8 @@ class Database:
     def available_buns(self) -> List[Bun]:
         return self.buns
 
+
     def available_ingredients(self) -> List[Ingredient]:
         return self.ingredients
+
+

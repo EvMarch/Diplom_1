@@ -2,7 +2,7 @@ from typing import List
 
 from ya_practikum.bun import Bun
 from ya_practikum.burger import Burger
-from database import Database
+from ya_practikum.database import Database
 from ya_practikum.ingredient import Ingredient
 
 def main():
